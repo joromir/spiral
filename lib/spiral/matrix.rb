@@ -10,5 +10,17 @@ module Spiral
     def initialize(rows = [])
       @rows = rows
     end
+
+    def columns
+      columns = rows.map { |row| [] }
+
+      rows.each do |row|
+        row.each.with_index do |element, position|
+          columns[position] << element
+        end
+      end
+
+      columns
+    end
   end
 end

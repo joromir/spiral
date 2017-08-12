@@ -14,9 +14,7 @@ module Spiral
     def columns
       return rows if rows.empty? || rows.one?
 
-      rows.reduce do |acc, row|
-        acc.zip(row).map(&:flatten)
-      end
+      rows.reduce { |acc, row| acc.zip(row).map(&:flatten) }
     end
   end
 end

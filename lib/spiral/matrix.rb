@@ -12,15 +12,11 @@ module Spiral
     end
 
     def columns
-      columns = rows.map { |row| [] }
+      return rows if rows.empty? || rows.one?
 
-      rows.each do |row|
-        row.each.with_index do |element, position|
-          columns[position] << element
-        end
+      rows.reduce do |acc, row|
+        acc.zip(row).map(&:flatten)
       end
-
-      columns
     end
   end
 end

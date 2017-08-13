@@ -1,4 +1,7 @@
 module Spiral
+  # Given an instance of Spiral::Matrix, Spiral::MatrixRing
+  # calculates the array of outer elements
+  # of that matrix in a clockwise manner.
   class MatrixRing
     attr_reader :matrix, :rows, :columns
 

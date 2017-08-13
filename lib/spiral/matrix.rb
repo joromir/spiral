@@ -25,7 +25,7 @@ module Spiral
     end
 
     def even?
-      rows.size % 2 == 0
+      rows.size.even?
     end
 
     private

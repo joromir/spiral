@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'spiral'
 
 RSpec.configure do |config|

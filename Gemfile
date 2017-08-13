@@ -6,4 +6,4 @@ gem 'guard-rspec'
 gem 'reek'
 gem 'rspec'
 gem 'rubocop'
-gem 'simplecov'
+gem 'simplecov', require: false

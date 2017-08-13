@@ -62,7 +62,7 @@ RSpec.describe Spiral::Matrix do
   end
 
   describe '#ring' do
-    context 'when rows are []' do
+    context 'when rows are 0x0' do
       let(:input_rows) { [] }
 
       it 'returns []' do
@@ -70,7 +70,7 @@ RSpec.describe Spiral::Matrix do
       end
     end
 
-    context 'when rows are [[1]]' do
+    context 'when rows are 1x1' do
       let(:input_rows) { [[1]] }
 
       it 'returns [1]' do
@@ -78,7 +78,7 @@ RSpec.describe Spiral::Matrix do
       end
     end
 
-    context 'when rows are [[2, 4], [8, 10]]' do
+    context 'when matrix is 2x2' do
       let(:input_rows) do
         [
           [2, 4],
@@ -86,12 +86,12 @@ RSpec.describe Spiral::Matrix do
         ]
       end
 
-      it 'returns [[2, 4], [10, 8]]' do
+      it 'returns the expected ring' do
         expect(subject.ring).to eq([2, 4, 10, 8])
       end
     end
 
-    context 'when rows are [[11, 22, 33], [8, 18, 88], [6, 61, 661]]' do
+    context 'when matrix is 3x3' do
       let(:input_rows) do
         [
           [11, 22, 33],
@@ -100,11 +100,15 @@ RSpec.describe Spiral::Matrix do
         ]
       end
 
-      it 'returns [[11, 22, 33]]' do
+      it 'returns the expected ring' do
         expected_ring = [11, 22, 33, 88, 661, 61, 6, 8]
 
         expect(subject.ring).to eq(expected_ring)
       end
+    end
+
+    context 'when given matrix is 4x4' do
+      it 'returns the expected ring'
     end
   end
 

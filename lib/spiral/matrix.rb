@@ -17,7 +17,7 @@ module Spiral
       rows.reduce { |acc, row| acc.zip(row).map(&:flatten) }
     end
 
-    # TODO: refactor MAtrix#ring
+    # TODO: refactor Matrix#ring
     def ring
       return [] if rows.empty?
       return rows[0] if rows.one?

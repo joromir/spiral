@@ -108,7 +108,20 @@ RSpec.describe Spiral::Matrix do
     end
 
     context 'when given matrix is 4x4' do
-      it 'returns the expected ring'
+      let(:input_rows) do
+        [
+          [1, 2, 3, 4],
+          [4, 3, 2, 1],
+          [0, 7, 8, 9],
+          [6, 5, 3, 2]
+        ]
+      end
+
+      xit 'returns the expected ring' do
+        expected_ring = [1, 2, 3, 4, 1, 9, 2, 3, 5, 6, 0, 4]
+
+        expect(subject.ring).to eq(expected_ring)
+      end
     end
   end
 

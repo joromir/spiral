@@ -23,9 +23,9 @@ module Spiral
       return rows[0] if rows.one?
 
       if rows.size % 2 == 0
-        rows[0] + columns[-1][1..-1] + [rows[-1][0]]
+        rows[0] + columns[-1][1..-1] + rows[-1][0..-2]
       else
-        rows[0] + columns[-1][1..-1]  + rows[-1][1..-2] + columns[0].reverse[0..-2]
+        rows[0] + columns[-1][1..-1] + rows[-1][1..-2] + columns[0].reverse[0..-2]
       end
     end
   end

@@ -19,6 +19,10 @@ module Spiral
       rows.size.even?
     end
 
+    def two_by_two?
+      rows.size == 2
+    end
+
     private
 
     def north
@@ -36,9 +40,9 @@ module Spiral
     end
 
     def west
-      return [] if even? && rows.size == 2
+      return [] if even? && two_by_two?
 
-      position = even? && rows.size != 2 ? 1 : 0
+      position = even? && !two_by_two? ? 1 : 0
 
       columns.first.reverse[position..-2]
     end

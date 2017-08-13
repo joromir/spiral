@@ -40,7 +40,7 @@ module Spiral
     end
 
     def west
-      return [] if even? && two_by_two?
+      return [] if two_by_two?
 
       position = even? && !two_by_two? ? 1 : 0
 

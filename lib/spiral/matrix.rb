@@ -41,13 +41,15 @@ module Spiral
     def south
       position = even? ? 0 : 1
 
-      rows.last[position..-2]
+      rows.last[position..-2].reverse
     end
 
     def west
-      return [] if even?
+      return [] if even? && rows.size == 2
 
-      columns.first.reverse[0..-2]
+      position = even? && rows.size != 2 ? 1 : 0
+
+      columns.first.reverse[position..-2]
     end
   end
 end

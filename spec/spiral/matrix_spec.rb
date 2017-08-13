@@ -117,7 +117,7 @@ RSpec.describe Spiral::Matrix do
         ]
       end
 
-      xit 'returns the expected ring' do
+      it 'returns the expected ring' do
         expected_ring = [1, 2, 3, 4, 1, 9, 2, 3, 5, 6, 0, 4]
 
         expect(subject.ring).to eq(expected_ring)

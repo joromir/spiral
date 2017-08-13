@@ -123,6 +123,41 @@ RSpec.describe Spiral::Matrix do
         expect(subject.ring).to eq(expected_ring)
       end
     end
+
+    context 'when matrix is 5x5' do
+      let(:input_rows) do
+        [
+          [12, 13, 14, 15, 16],
+          [17, 18, 19, 20, 21],
+          [12, 13, 14, 15, 16],
+          [17, 18, 19, 20, 21],
+          [10, 20, 30, 40, 50]
+        ]
+      end
+
+      it 'returns the expected ring' do
+        expected_ring = [
+          12,
+          13,
+          14,
+          15,
+          16,
+          21,
+          16,
+          21,
+          50,
+          40,
+          30,
+          20,
+          10,
+          17,
+          12,
+          17
+        ]
+
+        expect(subject.ring).to eq(expected_ring)
+      end
+    end
   end
 
   describe '#submatrix' do

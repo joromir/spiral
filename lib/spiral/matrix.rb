@@ -1,9 +1,9 @@
 module Spiral
   # Spiral::Matrix.new expects an array of arrays.
-  # Each component represents a row of the matrix.
-  # Spiral::Matrix is designed to hold data for a
-  # square matrix - the number of rows is equal to
-  # the number of columns.
+  # Each component from the input is expected to represent
+  # a row of the matrix.
+  # Keep in mind that we consider only the case of
+  # square matrix.
   class Matrix
     attr_reader :rows
 
@@ -35,19 +35,19 @@ module Spiral
     end
 
     def east
-      columns[-1][1..-1]
+      columns.last[1..-1]
     end
 
     def south
       position = even? ? 0 : 1
 
-      rows[-1][position..-2]
+      rows.last[position..-2]
     end
 
     def west
       return [] if even?
 
-      columns[0].reverse[0..-2]
+      columns.first.reverse[0..-2]
     end
   end
 end

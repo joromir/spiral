@@ -17,16 +17,37 @@ module Spiral
       rows.reduce { |acc, row| acc.zip(row).map(&:flatten) }
     end
 
-    # TODO: refactor Matrix#ring
     def ring
       return [] if rows.empty?
-      return rows[0] if rows.one?
+      return rows.first if rows.one?
 
-      if rows.size % 2 == 0
-        rows[0] + columns[-1][1..-1] + rows[-1][0..-2]
-      else
-        rows[0] + columns[-1][1..-1] + rows[-1][1..-2] + columns[0].reverse[0..-2]
-      end
+      north + east + south + west
+    end
+
+    def even?
+      rows.size % 2 == 0
+    end
+
+    private
+
+    def north
+      rows[0]
+    end
+
+    def east
+      columns[-1][1..-1]
+    end
+
+    def south
+      position = even? ? 0 : 1
+
+      rows[-1][position..-2]
+    end
+
+    def west
+      return [] if even?
+
+      columns[0].reverse[0..-2]
     end
   end
 end

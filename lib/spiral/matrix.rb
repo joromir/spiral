@@ -21,10 +21,18 @@ module Spiral
       MatrixRing.new(self).to_a
     end
 
-    def submatrix
-      return [] unless rows.size > 2
+    def ==(other)
+      rows == other.rows
+    end
 
-      rows[1..-2].map { |row| row[1..-2] }
+    def submatrix
+      submatrix_rows = if rows.size > 2
+                         rows[1..-2].map { |row| row[1..-2] }
+                       else
+                         []
+                       end
+
+      Matrix.new(submatrix_rows)
     end
   end
 end

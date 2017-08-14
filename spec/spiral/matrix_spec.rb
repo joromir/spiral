@@ -165,7 +165,7 @@ RSpec.describe Spiral::Matrix do
       let(:input_rows) { [] }
 
       it 'returns the expected submatrix' do
-        expect(subject.submatrix).to eq([])
+        expect(subject.submatrix).to eq(Spiral::Matrix.new([]))
       end
     end
 
@@ -173,7 +173,7 @@ RSpec.describe Spiral::Matrix do
       let(:input_rows) { [[666]] }
 
       it 'returns the expected submatrix' do
-        expect(subject.submatrix).to eq([])
+        expect(subject.submatrix).to eq(Spiral::Matrix.new([]))
       end
     end
 
@@ -186,7 +186,7 @@ RSpec.describe Spiral::Matrix do
       end
 
       it 'returns the expected submatrix' do
-        expect(subject.submatrix).to eq([])
+        expect(subject.submatrix).to eq(Spiral::Matrix.new([]))
       end
     end
 
@@ -200,7 +200,7 @@ RSpec.describe Spiral::Matrix do
       end
 
       it 'returns the expected submatrix' do
-        expect(subject.submatrix).to eq([[5555]])
+        expect(subject.submatrix).to eq(Spiral::Matrix.new([[5555]]))
       end
     end
 
@@ -215,10 +215,12 @@ RSpec.describe Spiral::Matrix do
       end
 
       it 'returns the expected submatrix' do
-        expected_submatrix = [
+        expected_submatrix_input = [
           [13, 14],
           [18, 19]
         ]
+
+        expected_submatrix = Spiral::Matrix.new(expected_submatrix_input)
 
         expect(subject.submatrix).to eq(expected_submatrix)
       end
@@ -236,11 +238,13 @@ RSpec.describe Spiral::Matrix do
       end
 
       it 'returns the expeted submatrix' do
-        expected_submatrix = [
+        expected_submatrix_input = [
           [11, 111, 1111],
           [222, 222, 2],
           [0, 666, 777]
         ]
+
+        expected_submatrix = Spiral::Matrix.new(expected_submatrix_input)
 
         expect(subject.submatrix).to eq(expected_submatrix)
       end

@@ -161,5 +161,89 @@ RSpec.describe Spiral::Matrix do
   end
 
   describe '#submatrix' do
+    context 'when a 0x0 matrix is given' do
+      let(:input_rows) { [] }
+
+      it 'returns the expected submatrix' do
+        expect(subject.submatrix).to eq([])
+      end
+    end
+
+    context 'when a 1x1 matrix is given' do
+      let(:input_rows) { [[666]] }
+
+      it 'returns the expected submatrix' do
+        expect(subject.submatrix).to eq([])
+      end
+    end
+
+    context 'when 2x2 matrix is given' do
+      let(:input_rows) do
+        [
+          [66, 666],
+          [12, 122]
+        ]
+      end
+
+      it 'returns the expected submatrix' do
+        expect(subject.submatrix).to eq([])
+      end
+    end
+
+    context 'when 3x3 matrix is given' do
+      let(:input_rows) do
+        [
+          [1,     22,     33],
+          [444,   5555,   6666],
+          [77777, 888888, 9999999]
+        ]
+      end
+
+      it 'returns the expected submatrix' do
+        expect(subject.submatrix).to eq([[5555]])
+      end
+    end
+
+    context 'when 4x4 matrix is given' do
+      let(:input_rows) do
+        [
+          [16, 15, 14, 13],
+          [12, 13, 14, 15],
+          [17, 18, 19, 20],
+          [20, 19, 18, 13]
+        ]
+      end
+
+      it 'returns the expected submatrix' do
+        expected_submatrix = [
+          [13, 14],
+          [18, 19]
+        ]
+
+        expect(subject.submatrix).to eq(expected_submatrix)
+      end
+    end
+
+    context 'when matrix 5x5 is given' do
+      let(:input_rows) do
+        [
+          [0,    10,  100, 1000, -4],
+          [1,    11,  111, 1111, -3],
+          [2222, 222, 222, 2,    -2],
+          [-1,   0,   666, 777,   2],
+          [-1,   0,   686, 772,   9]
+        ]
+      end
+
+      it 'returns the expeted submatrix' do
+        expected_submatrix = [
+          [11, 111, 1111],
+          [222, 222, 2],
+          [0, 666, 777]
+        ]
+
+        expect(subject.submatrix).to eq(expected_submatrix)
+      end
+    end
   end
 end

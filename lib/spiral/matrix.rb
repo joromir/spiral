@@ -20,5 +20,11 @@ module Spiral
     def ring
       MatrixRing.new(self).to_a
     end
+
+    def submatrix
+      return [] unless rows.size > 2
+
+      rows[1..-2].map { |row| row[1..-2] }
+    end
   end
 end

@@ -10,15 +10,9 @@ module Spiral
     end
 
     def to_a
-      temporary = matrix
-      spiral = matrix.ring
+      return matrix.ring if matrix.atomic?
 
-      matrix.rows.count.times do
-        spiral += temporary.submatrix.ring
-        temporary = temporary.submatrix
-      end
-
-      spiral
+      matrix.ring + MatrixCrawler.new(matrix.submatrix).to_a
     end
   end
 end

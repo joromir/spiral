@@ -25,6 +25,10 @@ module Spiral
       rows == other.rows
     end
 
+    def atomic?
+      (1..2).member?(rows.count)
+    end
+
     def submatrix
       submatrix_rows = if rows.size > 2
                          rows[1..-2].map { |row| row[1..-2] }

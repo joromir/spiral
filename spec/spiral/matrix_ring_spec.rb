@@ -21,7 +21,7 @@ RSpec.describe Spiral::MatrixRing do
     end
 
     context 'when matrix is 2x2' do
-      let(:matrix) { Spiral::Matrix.new([[1, 13], [31, 2]])}
+      let(:matrix) { Spiral::Matrix.new([[1, 13], [31, 2]]) }
 
       it 'returns the expected ring' do
         expect(subject.to_a).to eq([1, 13, 2, 31])

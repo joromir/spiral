@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe Spiral::MatrixRing do
+RSpec.describe Spiral::MatrixRing do # rubocop:disable Metrics/BlockLength
   subject { described_class.new(matrix) }
 
-  describe '#to_a' do
+  describe '#to_a' do # rubocop:disable Metrics/BlockLength
     context 'when matrix is 0x0' do
       let(:matrix) { Spiral::Matrix.new([]) }
 

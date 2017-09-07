@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Spiral::Matrix do
+RSpec.describe Spiral::Matrix do # rubocop:disable Metrics/BlockLength
   subject { described_class.new(input_rows) }
 
   describe '#rows' do
@@ -21,7 +21,7 @@ RSpec.describe Spiral::Matrix do
     end
   end
 
-  describe '#columns' do
+  describe '#columns' do # rubocop:disable Metrics/BlockLength
     context 'when [] is given' do
       let(:input_rows) { [] }
 
@@ -61,7 +61,7 @@ RSpec.describe Spiral::Matrix do
     end
   end
 
-  describe '#ring' do
+  describe '#ring' do # rubocop:disable Metrics/BlockLength
     context 'when rows are 0x0' do
       let(:input_rows) { [] }
 
@@ -124,7 +124,7 @@ RSpec.describe Spiral::Matrix do
       end
     end
 
-    context 'when matrix is 5x5' do
+    context 'when matrix is 5x5' do # rubocop:disable Metrics/BlockLength
       let(:input_rows) do
         [
           [12, 13, 14, 15, 16],
@@ -160,7 +160,7 @@ RSpec.describe Spiral::Matrix do
     end
   end
 
-  describe '#submatrix' do
+  describe '#submatrix' do # rubocop:disable Metrics/BlockLength
     context 'when a 0x0 matrix is given' do
       let(:input_rows) { [] }
 
